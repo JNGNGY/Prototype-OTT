@@ -5,6 +5,8 @@ export default {
             REavailable: true,
             sender: '',
             recipient: '',
+            SeOrgi: ['GOALZO AG'],
+            ReOrgi: ['Fake AG', 'Vallah AG', 'Haram AG'],
             SeTeams: ['Team Blue', 'Team Red'],
             ReTeams: ['Team Blue', 'Team Red'],
         };
@@ -12,15 +14,31 @@ export default {
 
     methods: {
         Selist(){
-            this.SEavailable = true;
-            this.SeTeams = ['Team Blue', 'Team Red'];
+            this.SEavailable = false;
             console.log(this.Teams);
         },
 
         Relist(){
-            this.SUavailable = true;
-            this.ReTeams = ['Team Blue', 'Team Red'];
+            this.REavailable = false;
             console.log(this.Teams);
+        },
+
+        SetSender(Orgi){
+            this.sender = Orgi;
+            this.SEavailable = true;
+        },
+
+        SetRecipient(Orgi){
+            this.recipient = Orgi;
+            this.REavailable = true;
+        },
+
+        DeleteList(){
+                setTimeout(() => this.SEavailable = true, 150);
+        },
+
+        DeleteList1(){
+            setTimeout(() => this.REavailable = true, 150);
         },
 
     },

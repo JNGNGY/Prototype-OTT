@@ -6,8 +6,8 @@
                 class="inputfield__input"
                 required
                 v-model="sender"
-                @focus="SEavailable = false"
-                @blur="SEavailable = true">    
+                @focus="Selist"
+                @blur="DeleteList">    
                 <div class="inputfield__placeholder">    
                     <span>Sender</span>
                 </div>
@@ -17,8 +17,8 @@
                 class="inputfield__input"
                 required
                 v-model="recipient"
-                @focus="REavailable = false"
-                @blur="REavailable = true">
+                @focus="Relist"
+                @blur="DeleteList1">
                 <div class="inputfield__placeholder1">    
                     <span>Recipient</span>
                 </div>
@@ -27,12 +27,14 @@
         <div class="suggestionlist">   
             <div class="suggestionlist_sender" v-show="!SEavailable"> 
                 <ul>
-                    <li v-for="Team in SeTeams" :key="Team">{{ Team }}</li>
+                    <li @click="SetSender(Orgi)" v-for="Orgi in SeOrgi" :key="Orgi">{{ Orgi }}</li>
+                    <li @click="SetSender(Team)" v-for="Team in SeTeams" :key="Team">{{ Team }}</li>
                 </ul>
             </div>
             <div class="suggestionlist_recipient" v-show="!REavailable"> 
                 <ul>
-                    <li v-for="Team in ReTeams" :key="Team">{{ Team }}</li>
+                    <li @click="SetRecipient(Orgi)" v-for="Orgi in ReOrgi" :key="Orgi">{{ Orgi }}</li>
+                    <li @click="SetRecipient(Team)" v-for="Team in ReTeams" :key="Team">{{ Team }}</li>
                 </ul>
             </div>
         </div>

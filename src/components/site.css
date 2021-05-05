@@ -274,3 +274,7 @@
     transition-delay: 0.1s;
     caret-color: #19AC63;
 }
+
+.suggestionlist_sender:hover li{
+    color: red;
+}
