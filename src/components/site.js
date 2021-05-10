@@ -1,7 +1,4 @@
 import Test from '../sfx-dev-org-team-export.json';
-import Vue from 'vue'
-import { TreeSelect } from 'ant-design-vue';
-Vue.use(TreeSelect);
 
 export default {
     data() {
