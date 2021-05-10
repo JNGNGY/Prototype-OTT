@@ -1,0 +1,639 @@
+{
+    "organisations": [
+        {
+            "id": 1,
+            "name": "Super Admin Org",
+            "address": "",
+            "zipCode": "",
+            "city": "",
+            "country": "United Kingdom",
+            "taxId": "",
+            "contactName": "",
+            "contactPosition": "",
+            "contactEmail": "sys-admin@secretarium.org",
+            "contactPhone": "",
+            "creatorEmail": "",
+            "creatorPhone": "",
+            "counts": {
+                "admins": 2,
+                "members": 1,
+                "invited": 2
+            },
+            "users": [
+                {
+                    "email": "andreas.kohler2@swisscom.com",
+                    "status": "admin",
+                    "date": 1617185586661794300,
+                    "modifier": "sys-admin@secretarium.org"
+                },
+                {
+                    "email": "bob@secretarium.org",
+                    "status": "invited",
+                    "date": 1615318270293806600,
+                    "modifier": "sys-admin@secretarium.org"
+                },
+                {
+                    "email": "florian@secretarium.org",
+                    "status": "member",
+                    "date": 1615562005118352100,
+                    "modifier": "sys-admin@secretarium.org"
+                },
+                {
+                    "email": "john@secretarium.org",
+                    "status": "invited",
+                    "date": 1615318703307718400,
+                    "modifier": "sys-admin@secretarium.org"
+                },
+                {
+                    "email": "sys-admin@secretarium.org",
+                    "status": "admin",
+                    "date": 1615318090176176400,
+                    "modifier": ""
+                }
+            ],
+            "teams": []
+        },
+        {
+            "id": 2,
+            "name": "Gold Traders 🥇",
+            "address": "1 Bk St",
+            "zipCode": "E14 4SG",
+            "city": "London",
+            "country": "GB",
+            "taxId": "",
+            "contactName": "Bertrand",
+            "contactPosition": "Foing",
+            "contactEmail": "bertrand@secretarium.org",
+            "contactPhone": "+44 7595 300325",
+            "creatorEmail": "",
+            "creatorPhone": "",
+            "counts": {
+                "admins": 1,
+                "members": 1
+            },
+            "users": [
+                {
+                    "email": "bertrand@secretarium.org",
+                    "status": "admin",
+                    "date": 1615371126902006000,
+                    "modifier": ""
+                },
+                {
+                    "email": "bigoudi@secretarium.org",
+                    "status": "member",
+                    "date": 1618909513023580200,
+                    "modifier": "bertrand@secretarium.org"
+                }
+            ],
+            "teams": []
+        },
+        {
+            "id": 3,
+            "name": "FG Systems",
+            "address": "Paradise Avenue",
+            "zipCode": "W7 Q42",
+            "city": "London",
+            "country": "GB",
+            "taxId": "",
+            "contactName": "Bob",
+            "contactPosition": "Sponge",
+            "contactEmail": "bsponge@yopmail.com",
+            "contactPhone": "+33 6 17 08 11 70",
+            "creatorEmail": "",
+            "creatorPhone": "",
+            "counts": {
+                "admins": 1
+            },
+            "users": [
+                {
+                    "email": "florian.guitton@outlook.com",
+                    "status": "admin",
+                    "date": 1615562602868028200,
+                    "modifier": ""
+                }
+            ],
+            "teams": [
+                1
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Flower Folly",
+            "address": "Code",
+            "zipCode": "1337",
+            "city": "London",
+            "country": "GB",
+            "taxId": "",
+            "contactName": "Rose",
+            "contactPosition": "Petal",
+            "contactEmail": "rp@yopmail.com",
+            "contactPhone": "+33 6 17 08 11 70",
+            "creatorEmail": "",
+            "creatorPhone": "",
+            "counts": {
+                "admins": 1
+            },
+            "users": [
+                {
+                    "email": "florian@secretarium.org",
+                    "status": "admin",
+                    "date": 1615563040432011500,
+                    "modifier": ""
+                }
+            ],
+            "teams": [
+                7
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Sunshine Foundation",
+            "address": "1 Temple street",
+            "zipCode": "Ox16 0FJ",
+            "city": "Banbury",
+            "country": "GB",
+            "taxId": "",
+            "contactName": "Ekta",
+            "contactPosition": "Manager",
+            "contactEmail": "rathi.ekta@gmail.com",
+            "contactPhone": "+44 7123 456789",
+            "creatorEmail": "",
+            "creatorPhone": "",
+            "counts": {
+                "admins": 1,
+                "members": 3,
+                "invited": 1
+            },
+            "users": [
+                {
+                    "email": "bertrand@secretarium.org",
+                    "status": "member",
+                    "date": 1616625827335978000,
+                    "modifier": "ekta@secretarium.org"
+                },
+                {
+                    "email": "ekta@secretarium.org",
+                    "status": "admin",
+                    "date": 1615567489226472200,
+                    "modifier": ""
+                },
+                {
+                    "email": "florian@secretarium.org",
+                    "status": "member",
+                    "date": 1616625771466798600,
+                    "modifier": "ekta@secretarium.org"
+                },
+                {
+                    "email": "xaffagudoz-6892@yopmail.com",
+                    "status": "member",
+                    "date": 1616625726292345600,
+                    "modifier": "ekta@secretarium.org"
+                },
+                {
+                    "email": "xaffucenysi-9300@yopmail.com",
+                    "status": "readyToJoin",
+                    "date": 1616626106429420500,
+                    "modifier": "ekta@secretarium.org"
+                }
+            ],
+            "teams": [
+                2,
+                3
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Folly Molly",
+            "address": "1 Main street",
+            "zipCode": "OX16 0FJ",
+            "city": "Banbury",
+            "country": "GB",
+            "taxId": "",
+            "contactName": "Ekta Rathi",
+            "contactPosition": "HR",
+            "contactEmail": "rathi.ekta@gmail.com",
+            "contactPhone": "+44 7123 456789",
+            "creatorEmail": "",
+            "creatorPhone": "",
+            "counts": {
+                "admins": 1,
+                "members": 2
+            },
+            "users": [
+                {
+                    "email": "cebycexi-3062@yopmail.com",
+                    "status": "member",
+                    "date": 1617108680619751700,
+                    "modifier": "rathi.ekta@gmail.com"
+                },
+                {
+                    "email": "epuxeppyll-2641@yopmail.com",
+                    "status": "member",
+                    "date": 1617109723604183300,
+                    "modifier": "rathi.ekta@gmail.com"
+                },
+                {
+                    "email": "rathi.ekta@gmail.com",
+                    "status": "admin",
+                    "date": 1615898420124556300,
+                    "modifier": ""
+                }
+            ],
+            "teams": [
+                4,
+                5,
+                8,
+                14
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Room to Read",
+            "address": "1 Hythe Bridge",
+            "zipCode": "Ox1 2EP",
+            "city": "Oxford",
+            "country": "GB",
+            "taxId": "",
+            "contactName": "Ekta Rathi",
+            "contactPosition": "Admin",
+            "contactEmail": "rathi.ekta@gmail.com",
+            "contactPhone": "+44 7123 456789",
+            "creatorEmail": "",
+            "creatorPhone": "",
+            "counts": {
+                "admins": 1,
+                "invited": 1
+            },
+            "users": [
+                {
+                    "email": "rathi.ekta@gmail.com",
+                    "status": "admin",
+                    "date": 1615907294931361500,
+                    "modifier": ""
+                },
+                {
+                    "email": "unnuhewurru-3445@yopmail.com",
+                    "status": "readyToJoin",
+                    "date": 1616681349940716300,
+                    "modifier": "rathi.ekta@gmail.com"
+                }
+            ],
+            "teams": [
+                6
+            ]
+        },
+        {
+            "id": 8,
+            "name": "blue river",
+            "address": "riverstreet 1",
+            "zipCode": "1000",
+            "city": "zurich",
+            "country": "CH",
+            "taxId": "",
+            "contactName": "Andreas Kohler",
+            "contactPosition": "CEO",
+            "contactEmail": "andreas.kohler2@swisscom.com",
+            "contactPhone": "+41 79 417 29 28",
+            "creatorEmail": "",
+            "creatorPhone": "",
+            "counts": {
+                "admins": 1,
+                "members": 1
+            },
+            "users": [
+                {
+                    "email": "andreas.kohler2@swisscom.com",
+                    "status": "admin",
+                    "date": 1616065466985198000,
+                    "modifier": ""
+                },
+                {
+                    "email": "andykohl3r@gmail.com",
+                    "status": "member",
+                    "date": 1616424065539053800,
+                    "modifier": "andreas.kohler2@swisscom.com"
+                }
+            ],
+            "teams": [
+                9,
+                10,
+                11,
+                12,
+                13
+            ]
+        },
+        {
+            "id": 9,
+            "name": "User",
+            "address": "usertest@gmail.com",
+            "zipCode": "ox16 0fj",
+            "city": "Banbury",
+            "country": "GB",
+            "taxId": "",
+            "contactName": "Ekta Raathi",
+            "contactPosition": "HR",
+            "contactEmail": "rathi.ekta@gmail.com",
+            "contactPhone": "+44 7123 456789",
+            "creatorEmail": "tokurroqy-8115@yopmail.com",
+            "creatorPhone": "+44 7123 456789",
+            "counts": {
+                "admins": 1,
+                "members": 2,
+                "invited": 3
+            },
+            "users": [
+                {
+                    "email": "asyllezobu-9515@yopmail.com",
+                    "status": "member",
+                    "date": 1616665046028324000,
+                    "modifier": "tokurroqy-8115@yopmail.com"
+                },
+                {
+                    "email": "bertrand@secretarium.org",
+                    "status": "readyToJoin",
+                    "date": 1616664460870026200,
+                    "modifier": "tokurroqy-8115@yopmail.com"
+                },
+                {
+                    "email": "sys-admin@secretarium.org",
+                    "status": "readyToJoin",
+                    "date": 1616664705416340200,
+                    "modifier": "tokurroqy-8115@yopmail.com"
+                },
+                {
+                    "email": "tokurroqy-8115@yopmail.com",
+                    "status": "admin",
+                    "date": 1616626394723774000,
+                    "modifier": ""
+                },
+                {
+                    "email": "xaffagudoz-6892@yopmail.com",
+                    "status": "readyToJoin",
+                    "date": 1616664685745227500,
+                    "modifier": "tokurroqy-8115@yopmail.com"
+                },
+                {
+                    "email": "xaffucenysi-9300@yopmail.com",
+                    "status": "member",
+                    "date": 1616664501782976500,
+                    "modifier": "tokurroqy-8115@yopmail.com"
+                }
+            ],
+            "teams": []
+        }
+    ],
+    "teams": [
+        {
+            "orgId": 3,
+            "id": 1,
+            "name": "Phalnaenopsis",
+            "counts": {},
+            "users": [],
+            "sponsorHidden": true
+        },
+        {
+            "orgId": 4,
+            "id": 7,
+            "name": "Fanta Cola",
+            "counts": {
+                "members": 1
+            },
+            "users": [
+                {
+                    "email": "florian@secretarium.org",
+                    "status": "member",
+                    "date": 1616766742704012000,
+                    "modifier": "florian@secretarium.org"
+                }
+            ],
+            "sponsorByDefault": true
+        },
+        {
+            "orgId": 5,
+            "id": 2,
+            "name": "Jenifier Martin",
+            "counts": {},
+            "users": []
+        },
+        {
+            "orgId": 5,
+            "id": 3,
+            "name": "Patrick Johnes",
+            "counts": {},
+            "users": []
+        },
+        {
+            "orgId": 6,
+            "id": 4,
+            "name": "Sean Thompson",
+            "counts": {
+                "members": 1,
+                "invited": 3
+            },
+            "users": [
+                {
+                    "email": "bertrand@secretarium.org",
+                    "status": "member",
+                    "date": 1616012957464101600,
+                    "modifier": "rathi.ekta@gmail.com"
+                },
+                {
+                    "email": "florian@secretarium.org",
+                    "status": "readyToJoin",
+                    "date": 1616012946597867000,
+                    "modifier": "rathi.ekta@gmail.com"
+                },
+                {
+                    "email": "john@secretarium.com",
+                    "status": "invited",
+                    "date": 1616012985719300400,
+                    "modifier": "rathi.ekta@gmail.com"
+                },
+                {
+                    "email": "john@secretarium.org",
+                    "status": "invited",
+                    "date": 1616013002487536400,
+                    "modifier": "rathi.ekta@gmail.com"
+                }
+            ]
+        },
+        {
+            "orgId": 6,
+            "id": 5,
+            "name": "Read/Write",
+            "counts": {
+                "members": 1,
+                "invited": 1
+            },
+            "users": [
+                {
+                    "email": "bertrand@secretarium.org",
+                    "status": "readyToJoin",
+                    "date": 1616066615411444200,
+                    "modifier": "rathi.ekta@gmail.com"
+                },
+                {
+                    "email": "florian@secretarium.org",
+                    "status": "member",
+                    "date": 1616071371189994500,
+                    "modifier": "rathi.ekta@gmail.com"
+                }
+            ]
+        },
+        {
+            "orgId": 6,
+            "id": 8,
+            "name": "Checking admin rights",
+            "counts": {
+                "members": 1,
+                "invited": 1
+            },
+            "users": [
+                {
+                    "email": "rathi.ekta@gmail.com",
+                    "status": "member",
+                    "date": 1616071352104625700,
+                    "modifier": "rathi.ekta@gmail.com"
+                },
+                {
+                    "email": "sys-admin@secretarium.org",
+                    "status": "readyToJoin",
+                    "date": 1616582952609837800,
+                    "modifier": "rathi.ekta@gmail.com"
+                }
+            ]
+        },
+        {
+            "orgId": 6,
+            "id": 14,
+            "name": "Check Team Status",
+            "counts": {
+                "members": 1
+            },
+            "users": [
+                {
+                    "email": "rathi.ekta@gmail.com",
+                    "status": "member",
+                    "date": 1617786690371280100,
+                    "modifier": "rathi.ekta@gmail.com"
+                }
+            ]
+        },
+        {
+            "orgId": 7,
+            "id": 6,
+            "name": "Testing Room Team",
+            "counts": {
+                "members": 2,
+                "invited": 1
+            },
+            "users": [
+                {
+                    "email": "ekta@secretarium.org",
+                    "status": "member",
+                    "date": 1615996754575650300,
+                    "modifier": "rathi.ekta@gmail.com"
+                },
+                {
+                    "email": "florian@secretarium.org",
+                    "status": "member",
+                    "date": 1615993545414630400,
+                    "modifier": "rathi.ekta@gmail.com"
+                },
+                {
+                    "email": "john@secretarium.org",
+                    "status": "invited",
+                    "date": 1615990790396469000,
+                    "modifier": "rathi.ekta@gmail.com"
+                }
+            ]
+        },
+        {
+            "orgId": 8,
+            "id": 9,
+            "name": "Team 1",
+            "counts": {
+                "members": 1
+            },
+            "users": [
+                {
+                    "email": "andreas.kohler2@swisscom.com",
+                    "status": "member",
+                    "date": 1616065744793080000,
+                    "modifier": "andreas.kohler2@swisscom.com"
+                }
+            ],
+            "sponsorByDefault": true,
+            "sponsorHidden": true
+        },
+        {
+            "orgId": 8,
+            "id": 10,
+            "name": "team two",
+            "counts": {
+                "members": 1
+            },
+            "users": [
+                {
+                    "email": "andreas.kohler2@swisscom.com",
+                    "status": "member",
+                    "date": 1616065740597425000,
+                    "modifier": "andreas.kohler2@swisscom.com"
+                }
+            ],
+            "sponsorByDefault": true,
+            "sponsorHidden": true
+        },
+        {
+            "orgId": 8,
+            "id": 11,
+            "name": "team 3",
+            "counts": {
+                "members": 1
+            },
+            "users": [
+                {
+                    "email": "andreas.kohler2@swisscom.com",
+                    "status": "member",
+                    "date": 1616671377564906000,
+                    "modifier": "andreas.kohler2@swisscom.com"
+                }
+            ],
+            "sponsorHidden": true
+        },
+        {
+            "orgId": 8,
+            "id": 12,
+            "name": "team 4",
+            "counts": {
+                "members": 1
+            },
+            "users": [
+                {
+                    "email": "andreas.kohler2@swisscom.com",
+                    "status": "member",
+                    "date": 1616671405389833200,
+                    "modifier": "andreas.kohler2@swisscom.com"
+                }
+            ]
+        },
+        {
+            "orgId": 8,
+            "id": 13,
+            "name": "team 5",
+            "counts": {
+                "members": 1
+            },
+            "users": [
+                {
+                    "email": "andreas.kohler2@swisscom.com",
+                    "status": "member",
+                    "date": 1616749315397801200,
+                    "modifier": "andreas.kohler2@swisscom.com"
+                }
+            ],
+            "sponsorByDefault": true,
+            "sponsorHidden": true
+        }
+    ]
+}

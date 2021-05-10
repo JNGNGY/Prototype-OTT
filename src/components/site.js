@@ -1,3 +1,5 @@
+import Test from '../sfx-dev-org-team-export.json';
+
 export default {
     data() {
         return {
@@ -5,11 +7,15 @@ export default {
             REavailable: true,
             sender: '',
             recipient: '',
-            SeOrgi: ['GOALZO AG'],
-            ReOrgi: ['Fake AG', 'Vallah AG', 'Haram AG'],
-            SeTeams: ['Team Blue', 'Team Red'],
-            ReTeams: ['Team Blue', 'Team Red'],
         };
+    },
+
+    computed: {
+        names() {
+            return Test.organisations.map((item) => {
+                return item.name;
+            })
+        }
     },
 
     methods: {
@@ -34,7 +40,7 @@ export default {
         },
 
         DeleteList(){
-                setTimeout(() => this.SEavailable = true, 150);
+            setTimeout(() => this.SEavailable = true, 150);
         },
 
         DeleteList1(){
