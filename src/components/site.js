@@ -1,4 +1,4 @@
-import Test from '../sfx-dev-org-team-export.json';
+import test from '../sfx-dev-org-team-export.json';
 
 export default {
     data() {
@@ -7,45 +7,17 @@ export default {
             REavailable: true,
             sender: '',
             recipient: '',
+            test,
+            value: undefined,
         };
     },
 
     computed: {
-        names() {
-            return Test.organisations.map((item) => {
-                return item.name;
-            })
-        }
+     
+
     },
 
     methods: {
-        Selist(){
-            this.SEavailable = false;
-            console.log(this.Teams);
-        },
-
-        Relist(){
-            this.REavailable = false;
-            console.log(this.Teams);
-        },
-
-        SetSender(Orgi){
-            this.sender = Orgi;
-            this.SEavailable = true;
-        },
-
-        SetRecipient(Orgi){
-            this.recipient = Orgi;
-            this.REavailable = true;
-        },
-
-        DeleteList(){
-            setTimeout(() => this.SEavailable = true, 150);
-        },
-
-        DeleteList1(){
-            setTimeout(() => this.REavailable = true, 150);
-        },
 
     },
 }
