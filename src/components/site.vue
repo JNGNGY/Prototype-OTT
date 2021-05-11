@@ -1,6 +1,8 @@
 <template>
     <div class="Site">
         <div class="inputfield">
+            <h3>Subject</h3>
+            <a-input placeholder="Subject of the exchange" />
             <div class="inputfield__inputcontainer">
                 <a-tree-select
                     show-search

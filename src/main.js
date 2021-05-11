@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import 'ant-design-vue/dist/antd.css';
 import App from './App.vue'
-import { TreeSelect } from 'ant-design-vue';
-Vue.use(TreeSelect);
+import 'ant-design-vue/dist/antd.css';
+import Antd from 'ant-design-vue';
+Vue.use(Antd);
 
 
 Vue.config.productionTip = false
