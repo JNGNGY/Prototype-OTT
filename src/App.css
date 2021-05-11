@@ -1,24 +1,56 @@
 @import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
 * {
-    font-family: 'Roboto';
+    padding: 0;
+    margin: 0;
+    border: none;
     box-sizing: border-box;
-    -webkit-user-select: none;
-    -webkit-user-drag: none;
+    list-style: none;
+    word-wrap: normal;
+    white-space: normal;
+    font-family: 'Muli', 'Century Gothic', 'Segoe UI', 'Tahoma', sans-serif;
+    /* transition: font-size 100ms ease-in-out; */
 }
+
+:root {
+    --font-size: 13px;
+    --bg-color: #fff;
+    --font-color: #111;
+}
+
+/* @import '~antd/antd.less'; */
 
 html,
 body {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    height: 100vh;
-    width: 100vw;
-}
-
-#app {
     height: 100%;
     width: 100%;
-    overflow: auto;
+    font-size: var(--font-size);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    background: var(--bg-color);
+    color: var(--font-color);
+}
+
+h3 {
+    font-size: 1.1rem;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+a {
+    text-decoration: none;
+}
+
+sup {
+    color: #ff4d4f;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+}
+
+.ant-table-filter-trigger-container {
+    display: none;
 }
