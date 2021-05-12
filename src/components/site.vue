@@ -30,11 +30,15 @@
                     placeholder="Please select"
                     allow-clear
                     multiple
-                    tree-default-expand-all
+                    :treeData="treeOrgData"
+                    @change="onChange"
+                    @search="onSearch"
+                    @select="onSelect"
                 >
             </a-tree-select>
             </div>
-        </div>    
+        </div>   
+
     </div>
 </template>
 
