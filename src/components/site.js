@@ -1,4 +1,3 @@
-import Test from '../sfx-dev-org-team-export.json';
 import data from '../data/sfx-data.json';
 
 export default {
@@ -20,11 +19,8 @@ export default {
     },
 
     computed: {
-        names() {
-            return Test.organisations.map((item) => {
-                return item.name;
-            })
-        }
+     
+
     },
 
     methods: {
@@ -67,6 +63,5 @@ export default {
         DeleteList1(){
             setTimeout(() => this.REavailable = true, 150);
         },
-
     },
 }
