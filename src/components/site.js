@@ -1,13 +1,22 @@
 import Test from '../sfx-dev-org-team-export.json';
+import data from '../data/sfx-data.json';
 
 export default {
+    el: '#app',
     data() {
         return {
             SEavailable: true,
             REavailable: true,
             sender: '',
             recipient: '',
+            organisations: '',
+            teams: '',
+            treeOrgData: [],
         };
+    },
+
+    mounted: function(){
+        this.loadData();
     },
 
     computed: {
@@ -19,6 +28,18 @@ export default {
     },
 
     methods: {
+        loadData(){
+            this.organisations = data.organisations;
+            this.teams = data.teams;
+
+            this.organisations.forEach(org => { 
+                this.treeOrgData.push({title: org.name, value: `o_${org.id}`, key: `o_${org.id}`, children: 
+                    this.teams
+                        .filter(team => team.orgId === org.id && team.id !== undefined)
+                        .map(team => ({title: team.name, value: `t_${team.id}`, key: `t_${team.id}`}))
+                });
+            });
+        },
         Selist(){
             this.SEavailable = false;
             console.log(this.Teams);
