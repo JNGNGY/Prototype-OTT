@@ -8,37 +8,59 @@
             <br>
             <br>
             <div class="inputfield__inputcontainer">
+                <h3>Sender</h3>
                 <a-tree-select
-                    v-model="value"
-                    :style="{ width: '25rem', maxWidth: '100%' }"
-                    :dropdown-style="{ maxHeight: '400px', overflow: 'auto' }"
-                    :tree-data="treeData"
-                    placeholder="Please select"
-                    tree-default-expand-all
-                >
-                <span  slot="name">
-                </span>
-            </a-tree-select>
-            &nbsp;&nbsp;&nbsp;
-            <a-icon type="swap" />
-            &nbsp;&nbsp;&nbsp;
-                <a-tree-select
+                    v-model="inputSender"
                     show-search
                     :style="{ width: '25rem', maxWidth: '100%' }"
-                    :value="value"
                     :dropdown-style="{ maxHeight: '400px', overflow: 'auto' }"
                     placeholder="Please select"
                     allow-clear
                     multiple
                     :treeData="treeOrgData"
-                    @change="onChange"
-                    @search="onSearch"
-                    @select="onSelect"
                 >
             </a-tree-select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a-icon type="swap" />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a-tree-select
+                v-model="inputRecipient"
+                show-search
+                :style="{ width: '25rem', maxWidth: '100%' }"
+                :dropdown-style="{ maxHeight: '400px', overflow: 'auto' }"
+                placeholder="Please select"
+                allow-clear
+                multiple
+                :treeData="treeOrgData"
+                @blur="inputRecipient = undefined"
+             >
+            </a-tree-select>
+            </div>
+            <div v-infinite-scroll="handleInfiniteOnLoad"
+                class="demo-infinite-container"
+                :infinite-scroll-disabled="busy"
+                :infinite-scroll-distance="10">
+                <a-list item-layout="horizontal" :data-source="listdata">
+                    <a-list-item>
+                        <a v-for="user in listdata" v-bind:key="user">{{user}}</a>
+                    </a-list-item>
+                </a-list>
+            </div>
+            <div class="inputfield_inputcontainer1" v-if="this.inputRecipient !== undefined">
+                <a-tree-select
+                    v-model="inputPersonal"
+                    show-search
+                    :style="{ width: '25rem', maxWidth: '100%' }"
+                    :dropdown-style="{ maxHeight: '400px', overflow: 'auto' }"
+                    placeholder="Please select"
+                    allow-clear
+                    multiple
+                    :treeData="users"
+                >
+                </a-tree-select>
+                <a-button class="addbutton" @click="addOrg" type="primary">Add</a-button>
             </div>
         </div>   
-
     </div>
 </template>
 

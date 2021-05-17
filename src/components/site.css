@@ -6,6 +6,7 @@
     background-size: 140% 100%;
     background-repeat: no-repeat;
     background-position: 50% 100%;
+    position: relative;
     
 }
 
@@ -16,3 +17,32 @@
     padding-top: 30px;
 }
 
+.inputfield_inputcontainer1 {
+    display: inline-block;
+    position: relative;
+    top: -240px;
+    left: 31px;
+}
+
+.addbutton {
+    position: relative;
+    top: 50px;
+    left: -62px;
+}
+
+.demo-infinite-container {
+    display: inline-block;
+    position: relative; 
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    overflow: auto;
+    top: 30px;
+    height: 300px;
+    width: 325px;
+  }
+  .demo-loading-container {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+}

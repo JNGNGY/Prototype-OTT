@@ -1,16 +1,16 @@
 import data from '../data/sfx-data.json';
-
+ 
 export default {
     el: '#app',
     data() {
         return {
-            SEavailable: true,
-            REavailable: true,
-            sender: '',
-            recipient: '',
-            organisations: '',
-            teams: '',
+            inputSender: undefined,
+            inputRecipient: undefined,
+            inputPersonal: undefined,
             treeOrgData: [],
+            users: [],
+            personal: false,
+            listdata: [],
         };
     },
 
@@ -29,39 +29,34 @@ export default {
             this.teams = data.teams;
 
             this.organisations.forEach(org => { 
-                this.treeOrgData.push({title: org.name, value: `o_${org.id}`, key: `o_${org.id}`, children: 
+                this.treeOrgData.push({title:org.name, value: `o_${org.id}`, key: `o_${org.id}`, children: 
                     this.teams
                         .filter(team => team.orgId === org.id && team.id !== undefined)
-                        .map(team => ({title: team.name, value: `t_${team.id}`, key: `t_${team.id}`}))
+                        .map(team =>({title: team.name, value: `t_${team.id}`, key: `t_${team.id}`}))
                 });
             });
-        },
-        Selist(){
-            this.SEavailable = false;
-            console.log(this.Teams);
+
+            this.organisations.forEach(org => {
+                org.users.forEach(user => {
+                    this.users.push({title: user.email, value: user.email, key: user.email})
+                });
+            });
+
+            console.log(this.users);
+            console.log(this.treeOrgData);
         },
 
-        Relist(){
-            this.REavailable = false;
-            console.log(this.Teams);
+        inputperson(){
+            if (this.inputRecipient !== undefined){
+                this.personal = false;
+            } else {
+                this.personal = true;
+            }
         },
 
-        SetSender(Orgi){
-            this.sender = Orgi;
-            this.SEavailable = true;
-        },
-
-        SetRecipient(Orgi){
-            this.recipient = Orgi;
-            this.REavailable = true;
-        },
-
-        DeleteList(){
-            setTimeout(() => this.SEavailable = true, 150);
-        },
-
-        DeleteList1(){
-            setTimeout(() => this.REavailable = true, 150);
+        addOrg() {
+            this.listdata.push(this.inputPersonal);
+            console.log(this.listdata);
         },
     },
 }
