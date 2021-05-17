@@ -52,7 +52,36 @@ export default {
                 this.personal = true;
             }
         },
+        handleRecipientType(type){
+            const selected = type.toString();
+            let selectedType = selected.split('_')[0]
+            let selectedValue = selected.split('_')[1]
+            let selectedObject = '';
 
+            if(type) {
+                this.users = [];
+                switch(selectedType) {
+
+                    case 'o': {
+                        selectedObject = (this.organisations.filter(org => {
+                            return org.id === Number(selectedValue)
+                        }))
+                        break;
+                    }
+                    case 't': {
+                        selectedObject = (this.teams.filter(team => {
+                            return team.id === Number(selectedValue)
+                        }))
+                        break;
+                    }
+                    default:
+                        break;
+                }
+                selectedObject[0].users.forEach(user => {
+                    this.users.push({title: user.email, value: user.email, key: user.email})
+                });
+            }
+        },
         addOrg() {
             if (this.inputPersonal == undefined) {
                 this.listdata.push(...this.users)

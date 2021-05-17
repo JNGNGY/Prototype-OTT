@@ -33,6 +33,7 @@
                 multiple
                 :treeData="treeOrgData"
                 @blur="inputRecipient = undefined"
+                @change="handleRecipientType"
              >
             </a-tree-select>
             </div>
