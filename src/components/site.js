@@ -19,7 +19,6 @@ export default {
     },
 
     computed: {
-     
 
     },
 
@@ -55,8 +54,19 @@ export default {
         },
 
         addOrg() {
-            this.listdata.push(this.inputPersonal);
+            if (this.inputPersonal == undefined) {
+                this.listdata.push(...this.users)
+
+            }
+            this.inputPersonal = this.inputPersonal.filter((user) => !this.listdata.includes(user));
+            this.listdata.push(...this.inputPersonal)
+            this.inputPersonal = undefined;
             console.log(this.listdata);
+        },
+
+        deleteuser(user) {
+            var index = this.listdata.indexOf(user);
+            this.listdata.splice(index, 1);
         },
     },
 }

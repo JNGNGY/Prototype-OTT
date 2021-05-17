@@ -46,3 +46,12 @@
     width: 100%;
     text-align: center;
 }
+
+.deletebutton {
+    position: absolute;
+    right: 10px;
+}
+
+.list {
+    margin-left: 5px;
+}

@@ -41,8 +41,9 @@
                 :infinite-scroll-disabled="busy"
                 :infinite-scroll-distance="10">
                 <a-list item-layout="horizontal" :data-source="listdata">
-                    <a-list-item>
-                        <a v-for="user in listdata" v-bind:key="user">{{user}}</a>
+                    <a-list-item class="list" v-for="user in listdata" :key="user">
+                        {{user}}
+                        <a class="deletebutton" @click="deleteuser(user)">delete</a>
                     </a-list-item>
                 </a-list>
             </div>
@@ -58,7 +59,7 @@
                     :treeData="users"
                 >
                 </a-tree-select>
-                <a-button class="addbutton" @click="addOrg" type="primary">Add</a-button>
+                <a-button class="addbutton" @click="addOrg()" type="primary">Add</a-button>
             </div>
         </div>   
     </div>
