@@ -1,5 +1,5 @@
 import data from '../data/sfx-data.json';
- 
+
 export default {
     el: '#app',
     data() {
@@ -11,6 +11,12 @@ export default {
             users: [],
             personal: false,
             listdata: [],
+            userlist: [],
+            Nodata: false,
+            User: [
+                { id: 1, name: "User" },
+            ],
+            TitlePerson: "",
         };
     },
 
@@ -24,8 +30,13 @@ export default {
 
     methods: {
         loadData(){
+
+            this.userjson = data.user
             this.organisations = data.organisations;
             this.teams = data.teams;
+
+            this.User.forEach(user => {
+                this.treeOrgData.push({title:user.name, value: `u_${user.id}`, key: `u_${user.id}`})});
 
             this.organisations.forEach(org => { 
                 this.treeOrgData.push({title:org.name, value: `o_${org.id}`, key: `o_${org.id}`, children: 
@@ -66,12 +77,24 @@ export default {
                         selectedObject = (this.organisations.filter(org => {
                             return org.id === Number(selectedValue)
                         }))
+                        this.TitlePerson = "Optional: Specific Person";
                         break;
                     }
                     case 't': {
                         selectedObject = (this.teams.filter(team => {
                             return team.id === Number(selectedValue)
                         }))
+                        this.TitlePerson = "Optional: Specific Person";
+                        break;
+                    }
+                    case 'u': {
+                        this.organisations.forEach(org => {
+                            org.users.forEach(user => {
+                                this.users.push({title: user.email, value: user.email, key: user.email})
+                            });
+                        });
+
+                        this.TitlePerson = "E-Mail Address";
                         break;
                     }
                     default:
@@ -81,21 +104,29 @@ export default {
                     this.users.push({title: user.email, value: user.email, key: user.email})
                 });
             }
-        },
+
+            console.log(this.inputRecipient);
+        },  
         addOrg() {
             if (this.inputPersonal == undefined) {
-                this.listdata.push(...this.users)
 
+                this.users.forEach(user => {
+                    this.listdata.push(user.title)
+                });
             }
+
             this.inputPersonal = this.inputPersonal.filter((user) => !this.listdata.includes(user));
             this.listdata.push(...this.inputPersonal)
             this.inputPersonal = undefined;
-            console.log(this.listdata);
         },
 
         deleteuser(user) {
             var index = this.listdata.indexOf(user);
             this.listdata.splice(index, 1);
+        },
+
+        alldelete() {
+            this.listdata = [];
         },
     },
 }
