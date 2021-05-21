@@ -1,4 +1,17 @@
 {
+    "users": [
+        {
+            "id": 1,
+            "email": "andreas.kohler2@swisscom.com",
+            "organisations": [
+                1, 9
+            ],
+            "teams": [
+                9, 10, 11, 12, 13
+            ]
+        }
+
+    ],
     "organisations": [
         {
             "id": 1,
