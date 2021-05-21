@@ -337,7 +337,7 @@
         },
         {
             "id": 9,
-            "name": "User",
+            "name": "User-Company",
             "address": "usertest@gmail.com",
             "zipCode": "ox16 0fj",
             "city": "Banbury",
