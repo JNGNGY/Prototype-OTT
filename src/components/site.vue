@@ -122,7 +122,11 @@
                         </a-list-item>
                     </a-list>
                 </div>
+                <a-button class="clearbutton" type="primary" @click="sendExchange">
+                    Send Exchange
+                </a-button>
             </div>
+            
         </div>
     </div>
 </template>

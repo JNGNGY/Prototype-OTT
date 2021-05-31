@@ -6,16 +6,10 @@ export default {
         return {
             inputSender: undefined,
             inputRecipient: undefined,
-            inputPersonal: undefined,
             treeOrgData: [],
             users: [],
-            personal: false,
             listdata: [],
-            sfxData: [],
-            sfxAutoComplete: [],
             recipientSearchQuery: '',
-            searchResultOrg: [],
-            searchResultTeam: [],
             searchResult: [],
             searchEmail: '',
             searchResultUsers: [],
@@ -23,12 +17,7 @@ export default {
             userTeamList: [],
             exchangeRecipient: '',
             tags: [],
-            userlist: [],
             Nodata: false,
-            User: [
-                { id: 1, name: "User" },
-            ],
-            TitlePerson: "",
             re: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
             invalidUser: false,
             unknownUser: false,
@@ -52,18 +41,6 @@ export default {
             this.organisations = data.organisations;
             this.teams = data.teams;
 
-
-            this.sfxData.push(
-                this.organisations
-                    .map(org => ({name: org.name, key: `o_${org.id}`, value: `o_${org.id}`})
-                )
-            )
-
-            this.sfxData.push(
-                this.teams
-                    .map(team => ({name: team.name, key: `t_${team.id}`, value: `t_${team.id}`, connector: team.orgId})
-                )
-            )
 
 
             this.organisations.forEach(org => { 
@@ -118,8 +95,6 @@ export default {
         handleRecipientSearch(query){
             if(query) {
                 switch(query.charAt(0)) {
-                    case '@':
-                        break;
                     case '':
                         this.searchResult = [];
                         this.emptyQuery = true;
@@ -150,11 +125,7 @@ export default {
                 this.searchResult = [];
             }
         },
-        getQueryEntities(query){
-            this.searchResultOrg = (this.sfxData[0].filter(entry => entry.name.toLowerCase().substring(0, (query.length-1)) === query.toLowerCase().substring(1, query.length)).map(entry => entry));
-            this.searchResultTeam = (this.sfxData[1].filter(entry => entry.name.toLowerCase().substring(0, (query.length-1)) === query.toLowerCase().substring(1, query.length)).map(entry => entry));
-            this.searchResult.push(this.searchResultOrg).concat(this.searchResultTeam);
-        },
+
         getQueryUsers(query){
             if(this.users.filter(user => user.email === query).length > 0){
                 this.unknownUser = false;
@@ -186,6 +157,11 @@ export default {
         },
 
         sendExchange() {
-        },
+            this.$notification.open({
+              message: 'Exchange Simulation',
+              description:
+                'The simulated exchange was completed with the following data',
+            });
+          },
     },
 }
