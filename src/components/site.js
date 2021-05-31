@@ -17,6 +17,7 @@ export default {
             searchResultOrg: [],
             searchResultTeam: [],
             searchResult: [],
+            searchEmail: '',
             searchResultUsers: [],
             userOrgList: [],
             userTeamList: [],
@@ -28,6 +29,11 @@ export default {
                 { id: 1, name: "User" },
             ],
             TitlePerson: "",
+            re: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+            invalidUser: false,
+            unknownUser: false,
+            history: [],
+            emptyQuery: true
         };
     },
 
@@ -111,102 +117,79 @@ export default {
         },
         handleRecipientSearch(query){
             if(query) {
+                console.log(query);
                 switch(query.charAt(0)) {
                     case '@':
-                        this.getQueryEntities(query);
+                        break;
+                    case '':
+                        this.searchResult = [];
+                        this.emptyQuery = true;
                         break;
                     default:
+                        this.emptyQuery = false;
                         this.getQueryUsers(query);
                         break;
                 }
+            } else {
+                this.searchResult = [];
+                this.emptyQuery = true;
             }
         },
         handleRecipientSelect(recipient){
-            this.tags.push(recipient);
-            this.exchangeRecipient = '';
-            this.searchResult = [];
+            if(recipient.type === undefined) {
+                let el = document.getElementById("recipientInput");  
+                el.dispatchEvent(new Event('input'));
+            } else {
+                if(this.listdata.filter(entry => entry === recipient).length === 0){
+                    this.history.push(recipient);
+                } 
+                this.exchangeRecipient = '';
+                if(this.history.filter(entry => entry.email === this.searchEmail).length === 0){
+                    this.history.push({email: this.searchEmail});
+                } 
+                this.emptyQuery = true;
+                this.searchResult = [];
+            }
         },
         getQueryEntities(query){
             this.searchResultOrg = (this.sfxData[0].filter(entry => entry.name.toLowerCase().substring(0, (query.length-1)) === query.toLowerCase().substring(1, query.length)).map(entry => entry));
             this.searchResultTeam = (this.sfxData[1].filter(entry => entry.name.toLowerCase().substring(0, (query.length-1)) === query.toLowerCase().substring(1, query.length)).map(entry => entry));
-
             this.searchResult.push(this.searchResultOrg).concat(this.searchResultTeam);
         },
         getQueryUsers(query){
             if(this.users.filter(user => user.email === query).length > 0){
+                this.unknownUser = false;
+                this.invalidUser = false;
+                this.searchEmail = query;
                 this.searchResult = this.users.filter(entry => entry.email.toLowerCase().substring(0, query.length) === query.toLowerCase().substring(0, query.length))
             } else {
-                this.searchResult = [];
+                if(this.re.test(String(query).toLowerCase())){
+                    this.invalidUser = false;
+                    this.unknownUser = true;
+                    this.searchResult = [{email: query, value: query, key: query, unregistered: true}];
+                } else {
+                    this.searchResult = [];
+                    this.invalidUser = true;
+                    this.unknownUser = false;
+                }
             }
 
         },
         
-        handleRecipientType(type){
-            const selected = type.toString();
-            let selectedType = selected.split('_')[0]
-            let selectedValue = selected.split('_')[1]
-            let selectedObject = '';
-
-            if(type) {
-                this.users = [];
-                switch(selectedType) {
-
-                    case 'o': {
-                        selectedObject = (this.organisations.filter(org => {
-                            return org.id === Number(selectedValue)
-                        }))
-                        this.TitlePerson = "Optional: Specific Person";
-                        break;
-                    }
-                    case 't': {
-                        selectedObject = (this.teams.filter(team => {
-                            return team.id === Number(selectedValue)
-                        }))
-                        this.TitlePerson = "Optional: Specific Person";
-                        break;
-                    }
-                    case 'u': {
-                        this.organisations.forEach(org => {
-                            org.users.forEach(user => {
-                                this.users.push({title: user.email, value: user.email, key: user.email})
-                            });
-                        });
-
-                        this.TitlePerson = "E-Mail Address";
-                        break;
-                    }
-                    default:
-                        break;
-                }
-                selectedObject[0].users.forEach(user => {
-                    this.users.push({title: user.email, value: user.email, key: user.email})
-                });
-            }
-        },
         handleClose(removedTag) {
-            const tags = this.tags.filter(tag => tag !== removedTag);
-            this.tags = tags;
+            console.log(removedTag);
+            const tags = this.listdata.filter(tag => tag !== removedTag);
+            console.log(this.listdata);
+            console.log(tags);
+            this.listdata = tags;
         },  
-        addOrg() {
-            if (this.inputPersonal == undefined) {
-
-                this.users.forEach(user => {
-                    this.listdata.push(user.title)
-                });
-            }
-
-            this.inputPersonal = this.inputPersonal.filter((user) => !this.listdata.includes(user));
-            this.listdata.push(...this.inputPersonal)
-            this.inputPersonal = undefined;
-        },
 
         deleteuser(user) {
             var index = this.listdata.indexOf(user);
             this.listdata.splice(index, 1);
         },
 
-        alldelete() {
-            this.listdata = [];
+        sendExchange() {
         },
     },
 }
