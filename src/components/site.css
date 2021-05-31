@@ -41,7 +41,7 @@
     border-radius: 4px;
     overflow: auto;
     top: 30px;
-    height: 300px;
+    height: 250px;
     width: 325px;
   }
   .demo-loading-container {
@@ -71,9 +71,9 @@
 }
 
 .clearbutton {
-    position: absolute;
-    left: -70px;
-    bottom: -60px;
+    float: left;
+    top: 50px;
+    left: 0px;
 }
 
 .sponsoring {
@@ -88,4 +88,12 @@
 
 .nodata {
     display: none;
+}
+
+.warning-invalid {
+    font-size: 12px;
+    position: absolute;
+    top: 100px;
+    left: 356px;
+    font-style: italic;
 }
