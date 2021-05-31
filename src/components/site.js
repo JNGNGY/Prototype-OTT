@@ -117,7 +117,6 @@ export default {
         },
         handleRecipientSearch(query){
             if(query) {
-                console.log(query);
                 switch(query.charAt(0)) {
                     case '@':
                         break;
@@ -140,8 +139,8 @@ export default {
                 let el = document.getElementById("recipientInput");  
                 el.dispatchEvent(new Event('input'));
             } else {
-                if(this.listdata.filter(entry => entry === recipient).length === 0){
-                    this.history.push(recipient);
+                if(this.listdata.filter(entry => entry.name === recipient.name).length === 0){
+                    this.listdata.push(recipient);
                 } 
                 this.exchangeRecipient = '';
                 if(this.history.filter(entry => entry.email === this.searchEmail).length === 0){
@@ -177,10 +176,7 @@ export default {
         },
         
         handleClose(removedTag) {
-            console.log(removedTag);
             const tags = this.listdata.filter(tag => tag !== removedTag);
-            console.log(this.listdata);
-            console.log(tags);
             this.listdata = tags;
         },  
 
