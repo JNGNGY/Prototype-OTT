@@ -61,7 +61,10 @@
 }
 
 .titlelist {
+    position: absolute;
     display: block;
+    left: 360px;
+    bottom: -78px;
 }
 
 .title {
@@ -77,8 +80,9 @@
 }
 
 .sponsoring {
-  position: relative;
-  top: 90px;
+    display: inline;
+    position: relative;
+    top: 90px;
 }
 
 .SDescription {
@@ -96,4 +100,15 @@
     top: 100px;
     left: 356px;
     font-style: italic;
+}
+
+.InputRec {
+    display: block;
+    padding-top: 20px;
+}
+
+.icon {
+    position: absolute;
+    bottom: 125px;
+    left: 340px;
 }
