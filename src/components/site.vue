@@ -38,16 +38,16 @@
                     option-label-prop="value"
                     @select="handleRecipientSelect"
                     @change="handleRecipientSearch">
-                    <div v-if="emptyQuery === true" slot="dataSource">
-                        <div v-for="entry in history" :value="entry.email" :key="entry.email">
+                    <template v-if="emptyQuery === true" slot="dataSource">
+                        <template v-for="entry in history" :value="entry.email">
                             <a-select-option :value="entry.email" :key="entry.email">
                                 <a-icon type="enter" />
                                 {{ entry.email }}
                             </a-select-option>                     
-                        </div>
-                    </div>
-                    <div v-if="emptyQuery === false" slot="dataSource">
-                        <div v-for="entry in searchResult" :value="entry.name" :key="entry.name">
+                        </template>
+                    </template>
+                    <template v-if="emptyQuery === false" slot="dataSource">
+                        <template v-for="entry in searchResult" :value="entry.name">
                             <a-select-opt-group v-if="unknownUser == false" :value="entry.name" :key="entry.key">
                                 <span slot="label">
                                     User
@@ -82,8 +82,8 @@
                                     {{ entryOrg.name }} > {{ entryTeam }}
                                 </a-select-option> 
                             </a-select-opt-group>
-                        </div>
-                    </div>
+                        </template>
+                    </template> 
                     <a-input>
                         <a-icon slot="suffix" type="search" class="certain-category-icon" />
                     </a-input>
