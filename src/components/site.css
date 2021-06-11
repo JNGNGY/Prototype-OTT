@@ -7,6 +7,7 @@
     background-repeat: no-repeat;
     background-position: 50% 100%;
     position: relative;
+    left: 100px;
     
 }
 
@@ -17,11 +18,21 @@
     padding-top: 30px;
 }
 
+.sender-field {
+    width: 16em;
+}
+
+.cc-field {
+    width: 26em;
+    position: relative;
+    left: 1.5em;
+}
+
 .inputfield_inputcontainer1 {
     display: inline-block;
     position: absolute;
     top: 180px;
-    left: 355px;
+    left: 315px;
 }
 
 .inputfield_inputcontainer1 h6 {
@@ -41,8 +52,8 @@
     border-radius: 4px;
     overflow: auto;
     top: 30px;
-    height: 250px;
-    width: 325px;
+    height: 150px;
+    width: 610px;
   }
   .demo-loading-container {
     position: absolute;
@@ -61,7 +72,7 @@
 }
 
 .titlelist {
-    display: block;
+
 }
 
 .title {
@@ -71,19 +82,20 @@
 }
 
 .clearbutton {
-    float: left;
     top: 50px;
-    left: 0px;
 }
 
 .sponsoring {
-  position: relative;
-  top: 90px;
+    margin-top: -30px;
+    width: 280px;
 }
 
 .SDescription {
     font-size: 12px;
     margin-bottom: 1px;
+    position: relative;
+    left: 280px;
+    top: 35px;
 }
 
 .nodata {
@@ -93,7 +105,17 @@
 .warning-invalid {
     font-size: 12px;
     position: absolute;
-    top: 100px;
-    left: 356px;
+    top: 360px;
+    left: 130px;
     font-style: italic;
+}
+
+.behalf-tag {
+    margin-bottom: 40px;
+}
+
+.add-cc {
+    position: relative;
+    width: 11em;
+    left: 3em;
 }

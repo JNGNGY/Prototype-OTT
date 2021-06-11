@@ -10,6 +10,7 @@ export default {
             users: [],
             listdata: [],
             recipientSearchQuery: '',
+            subject: '',
             searchResult: [],
             searchEmail: '',
             searchResultUsers: [],
@@ -22,7 +23,10 @@ export default {
             invalidUser: false,
             unknownUser: false,
             history: [],
-            emptyQuery: true
+            emptyQuery: true,
+            sponsoringForce: false,
+            sponsoring: false,
+            
         };
     },
 
@@ -44,11 +48,16 @@ export default {
 
 
             this.organisations.forEach(org => { 
-                this.treeOrgData.push({title:org.name, value: `o_${org.id}`, key: `o_${org.id}`, children: 
+                if(this.treeOrgData.length < 1) {
+                    this.treeOrgData.push({title:org.name, value: org.name, key: `o_${org.id}`, children: 
                     this.teams
                         .filter(team => team.orgId === org.id && team.id !== undefined)
-                        .map(team =>({title: team.name, value: `t_${team.id}`, key: `t_${team.id}`}))
+                        .map(team =>({title: team.name, value: team.name, key: `t_${team.id}`}))
                 });
+                } else {
+                    return
+                }
+
             });
 
             // Create User List
@@ -116,16 +125,25 @@ export default {
             } else {
                 if(this.listdata.filter(entry => entry.name === recipient.name).length === 0){
                     this.listdata.push(recipient);
+                    console.log(recipient);
                 } 
                 this.exchangeRecipient = '';
                 if(this.history.filter(entry => entry.email === this.searchEmail).length === 0){
                     this.history.push({email: this.searchEmail});
                 } 
+                if(this.listdata.filter(entry => entry.type === 'unregisteredUser').length > 0) {
+                    this.sponsoring = true;
+                    this.sponsoringForce = true;
+                } else {
+                    this.sponsoringForce = false;
+                }
                 this.emptyQuery = true;
                 this.searchResult = [];
             }
         },
-
+        handleSponsoring(){
+            this.sponsoring = !this.sponsoring;
+        },
         getQueryUsers(query){
             if(this.users.filter(user => user.email === query).length > 0){
                 this.unknownUser = false;
@@ -149,18 +167,29 @@ export default {
         handleClose(removedTag) {
             const tags = this.listdata.filter(tag => tag !== removedTag);
             this.listdata = tags;
+
+            if(this.listdata.filter(entry => entry.type === 'unregisteredUser').length > 0) {
+                this.sponsoring = true;
+                this.sponsoringForce = true;
+            } else {
+                this.sponsoringForce = false;
+            }
         },  
 
-        deleteuser(user) {
-            var index = this.listdata.indexOf(user);
-            this.listdata.splice(index, 1);
-        },
-
         sendExchange() {
+            let descriptionElement = (
+                <p>
+                    The simulation was completed with following data<br></br>
+                    <br></br>
+                    Subject: {this.subject}<br></br>
+                    Sender: {this.inputSender}<br></br>
+                    Recipient(s): {this.listdata.map(entry => entry.name + ', ')}<br></br>
+                </p>
+              )
             this.$notification.open({
               message: 'Exchange Simulation',
-              description:
-                'The simulated exchange was completed with the following data',
+              description: descriptionElement,
+              duration: 0,
             });
           },
     },

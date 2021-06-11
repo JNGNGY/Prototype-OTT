@@ -64,7 +64,7 @@
                     "modifier": ""
                 }
             ],
-            "teams": []
+            "teams": [15, 16, 17]
         },
         {
             "id": 2,
@@ -634,6 +634,60 @@
             "orgId": 8,
             "id": 13,
             "name": "team 5",
+            "counts": {
+                "members": 1
+            },
+            "users": [
+                {
+                    "email": "andreas.kohler2@swisscom.com",
+                    "status": "member",
+                    "date": 1616749315397801200,
+                    "modifier": "andreas.kohler2@swisscom.com"
+                }
+            ],
+            "sponsorByDefault": true,
+            "sponsorHidden": true
+        },
+        {
+            "orgId": 1,
+            "id": 15,
+            "name": "My team 1",
+            "counts": {
+                "members": 1
+            },
+            "users": [
+                {
+                    "email": "andreas.kohler2@swisscom.com",
+                    "status": "member",
+                    "date": 1616749315397801200,
+                    "modifier": "andreas.kohler2@swisscom.com"
+                }
+            ],
+            "sponsorByDefault": true,
+            "sponsorHidden": true
+        },
+        {
+            "orgId": 1,
+            "id": 16,
+            "name": "My team 2",
+            "counts": {
+                "members": 1
+            },
+            "users": [
+                {
+                    "email": "andreas.kohler2@swisscom.com",
+                    "status": "member",
+                    "date": 1616749315397801200,
+                    "modifier": "andreas.kohler2@swisscom.com"
+                }
+            ],
+            "sponsorByDefault": true,
+            "sponsorHidden": true
+        },
+        {
+            "orgId": 1,
+            "id": 17,
+            "name": "My team 3",
             "counts": {
                 "members": 1
             },
