@@ -15,7 +15,7 @@
     "organisations": [
         {
             "id": 1,
-            "name": "Super Admin Org",
+            "name": "Super Traders Inc.",
             "address": "",
             "zipCode": "",
             "city": "",
@@ -651,7 +651,7 @@
         {
             "orgId": 1,
             "id": 15,
-            "name": "My team 1",
+            "name": "Silver Team",
             "counts": {
                 "members": 1
             },
@@ -669,7 +669,7 @@
         {
             "orgId": 1,
             "id": 16,
-            "name": "My team 2",
+            "name": "Gold Team",
             "counts": {
                 "members": 1
             },
@@ -687,7 +687,7 @@
         {
             "orgId": 1,
             "id": 17,
-            "name": "My team 3",
+            "name": "Diamond Team",
             "counts": {
                 "members": 1
             },

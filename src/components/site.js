@@ -26,7 +26,9 @@ export default {
             emptyQuery: true,
             sponsoringForce: false,
             sponsoring: false,
-            
+            orgExchangeMode: false,
+            senderCount: 1,
+            orgRestriction: false,
         };
     },
 
@@ -118,6 +120,24 @@ export default {
                 this.emptyQuery = true;
             }
         },
+        checkRecipients(){
+            
+            let checkingOrg = this.listdata[0];
+
+            this.listdata.map(entry => {
+                if(entry.org === 'none'){
+                    this.orgRestriction = false;
+                } else {
+                    if(entry.org.name !== checkingOrg.org.name){
+                        this.orgRestriction = true;
+                    }
+                    else{
+                        this.orgRestriction = false
+                    }
+                }
+            });
+
+        },
         handleRecipientSelect(recipient){
             if(recipient.type === undefined) {
                 let el = document.getElementById("recipientInput");  
@@ -125,11 +145,11 @@ export default {
             } else {
                 if(this.listdata.filter(entry => entry.name === recipient.name).length === 0){
                     this.listdata.push(recipient);
-                    console.log(recipient);
+                    this.checkRecipients(recipient.org.name);
                 } 
                 this.exchangeRecipient = '';
                 if(this.history.filter(entry => entry.email === this.searchEmail).length === 0){
-                    this.history.push({email: this.searchEmail});
+                    this.searchEmail.length > 0 ? this.history.push({email: this.searchEmail}) : null;
                 } 
                 if(this.listdata.filter(entry => entry.type === 'unregisteredUser').length > 0) {
                     this.sponsoring = true;
@@ -140,6 +160,31 @@ export default {
                 this.emptyQuery = true;
                 this.searchResult = [];
             }
+        },
+        handleSenderSelect(sender){
+            if(sender === 'Super Traders Inc.'){
+                this.orgExchangeMode = true;
+                this.senderCount = 1;
+            } else {
+                this.orgExchangeMode = false;
+                switch(sender){
+                    case 'Silver Team': {
+                        this.senderCount = 4;
+                        break;
+                    }
+                    case 'Gold Team': {
+                        this.senderCount = 7;
+                        break;
+                    }
+                    case 'Diamond Team': {
+                        this.senderCount = 3;
+                        break;
+                    }
+                }
+            }
+        },
+        handleCCSelect(value){
+            this.senderCount = value.length + 1;
         },
         handleSponsoring(){
             this.sponsoring = !this.sponsoring;
@@ -167,7 +212,9 @@ export default {
         handleClose(removedTag) {
             const tags = this.listdata.filter(tag => tag !== removedTag);
             this.listdata = tags;
+            this.checkRecipients();
 
+            this.checkRecipients(removedTag.org.name);
             if(this.listdata.filter(entry => entry.type === 'unregisteredUser').length > 0) {
                 this.sponsoring = true;
                 this.sponsoringForce = true;
@@ -175,7 +222,9 @@ export default {
                 this.sponsoringForce = false;
             }
         },  
-
+        getTeamCount(name){
+            console.log(this.users.filter(entry => entry.teams.includes(name).length));
+        },
         sendExchange() {
             let descriptionElement = (
                 <p>

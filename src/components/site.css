@@ -18,14 +18,20 @@
     padding-top: 30px;
 }
 
+.title-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+}
+
 .sender-field {
-    width: 16em;
+    width: 43.6em;
 }
 
 .cc-field {
-    width: 26em;
+    width: 43.6em;
     position: relative;
-    left: 1.5em;
+    top: 0.7em;
 }
 
 .inputfield_inputcontainer1 {
@@ -52,7 +58,7 @@
     border-radius: 4px;
     overflow: auto;
     top: 30px;
-    height: 150px;
+    height: auto;
     width: 610px;
   }
   .demo-loading-container {
@@ -72,7 +78,10 @@
 }
 
 .titlelist {
-
+    margin-top: -1em;
+}
+.dropdown {
+    background-color: red;
 }
 
 .title {
@@ -110,12 +119,10 @@
     font-style: italic;
 }
 
-.behalf-tag {
-    margin-bottom: 40px;
+.particpiants-tag {
+
 }
 
 .add-cc {
-    position: relative;
-    width: 11em;
-    left: 3em;
+
 }
