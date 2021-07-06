@@ -2,7 +2,7 @@
     "users": [
         {
             "id": 1,
-            "email": "andreas.kohler2@swisscom.com",
+            "email": "john.smith@swisscom.com",
             "organisations": [
                 1, 9
             ],
@@ -34,21 +34,9 @@
             },
             "users": [
                 {
-                    "email": "andreas.kohler2@swisscom.com",
-                    "status": "admin",
-                    "date": 1617185586661794300,
-                    "modifier": "sys-admin@secretarium.org"
-                },
-                {
                     "email": "bob@secretarium.org",
                     "status": "invited",
                     "date": 1615318270293806600,
-                    "modifier": "sys-admin@secretarium.org"
-                },
-                {
-                    "email": "florian@secretarium.org",
-                    "status": "member",
-                    "date": 1615562005118352100,
                     "modifier": "sys-admin@secretarium.org"
                 },
                 {
@@ -101,66 +89,8 @@
             "teams": []
         },
         {
-            "id": 3,
-            "name": "FG Systems",
-            "address": "Paradise Avenue",
-            "zipCode": "W7 Q42",
-            "city": "London",
-            "country": "GB",
-            "taxId": "",
-            "contactName": "Bob",
-            "contactPosition": "Sponge",
-            "contactEmail": "bsponge@yopmail.com",
-            "contactPhone": "+33 6 17 08 11 70",
-            "creatorEmail": "",
-            "creatorPhone": "",
-            "counts": {
-                "admins": 1
-            },
-            "users": [
-                {
-                    "email": "florian.guitton@outlook.com",
-                    "status": "admin",
-                    "date": 1615562602868028200,
-                    "modifier": ""
-                }
-            ],
-            "teams": [
-                1
-            ]
-        },
-        {
-            "id": 4,
-            "name": "Flower Folly",
-            "address": "Code",
-            "zipCode": "1337",
-            "city": "London",
-            "country": "GB",
-            "taxId": "",
-            "contactName": "Rose",
-            "contactPosition": "Petal",
-            "contactEmail": "rp@yopmail.com",
-            "contactPhone": "+33 6 17 08 11 70",
-            "creatorEmail": "",
-            "creatorPhone": "",
-            "counts": {
-                "admins": 1
-            },
-            "users": [
-                {
-                    "email": "florian@secretarium.org",
-                    "status": "admin",
-                    "date": 1615563040432011500,
-                    "modifier": ""
-                }
-            ],
-            "teams": [
-                7
-            ]
-        },
-        {
             "id": 5,
-            "name": "Sunshine Foundation",
+            "name": "Secretarium",
             "address": "1 Temple street",
             "zipCode": "Ox16 0FJ",
             "city": "Banbury",
@@ -297,7 +227,7 @@
         },
         {
             "id": 8,
-            "name": "blue river",
+            "name": "Swisscom",
             "address": "riverstreet 1",
             "zipCode": "1000",
             "city": "zurich",
@@ -305,7 +235,7 @@
             "taxId": "",
             "contactName": "Andreas Kohler",
             "contactPosition": "CEO",
-            "contactEmail": "andreas.kohler2@swisscom.com",
+            "contactEmail": "john.smith@swisscom.com",
             "contactPhone": "+41 79 417 29 28",
             "creatorEmail": "",
             "creatorPhone": "",
@@ -315,7 +245,13 @@
             },
             "users": [
                 {
-                    "email": "andreas.kohler2@swisscom.com",
+                    "email": "john.smith@swisscom.com",
+                    "status": "admin",
+                    "date": 1616065466985198000,
+                    "modifier": ""
+                },
+                {
+                    "email": "andreas.kohler@swisscom.com",
                     "status": "admin",
                     "date": 1616065466985198000,
                     "modifier": ""
@@ -324,15 +260,12 @@
                     "email": "andykohl3r@gmail.com",
                     "status": "member",
                     "date": 1616424065539053800,
-                    "modifier": "andreas.kohler2@swisscom.com"
+                    "modifier": "john.smith@swisscom.com"
                 }
             ],
             "teams": [
                 9,
-                10,
-                11,
-                12,
-                13
+                10
             ]
         },
         {
@@ -424,14 +357,14 @@
         {
             "orgId": 5,
             "id": 2,
-            "name": "Jenifier Martin",
+            "name": "Sun Team",
             "counts": {},
             "users": []
         },
         {
             "orgId": 5,
             "id": 3,
-            "name": "Patrick Johnes",
+            "name": "Light Team",
             "counts": {},
             "users": []
         },
@@ -564,16 +497,16 @@
         {
             "orgId": 8,
             "id": 9,
-            "name": "Team 1",
+            "name": "Aqua Team",
             "counts": {
                 "members": 1
             },
             "users": [
                 {
-                    "email": "andreas.kohler2@swisscom.com",
+                    "email": "john.smith@swisscom.com",
                     "status": "member",
                     "date": 1616065744793080000,
-                    "modifier": "andreas.kohler2@swisscom.com"
+                    "modifier": "john.smith@swisscom.com"
                 }
             ],
             "sponsorByDefault": true,
@@ -582,68 +515,12 @@
         {
             "orgId": 8,
             "id": 10,
-            "name": "team two",
+            "name": "Riverbank Team",
             "counts": {
-                "members": 1
+                "members": 0
             },
             "users": [
-                {
-                    "email": "andreas.kohler2@swisscom.com",
-                    "status": "member",
-                    "date": 1616065740597425000,
-                    "modifier": "andreas.kohler2@swisscom.com"
-                }
-            ],
-            "sponsorByDefault": true,
-            "sponsorHidden": true
-        },
-        {
-            "orgId": 8,
-            "id": 11,
-            "name": "team 3",
-            "counts": {
-                "members": 1
-            },
-            "users": [
-                {
-                    "email": "andreas.kohler2@swisscom.com",
-                    "status": "member",
-                    "date": 1616671377564906000,
-                    "modifier": "andreas.kohler2@swisscom.com"
-                }
-            ],
-            "sponsorHidden": true
-        },
-        {
-            "orgId": 8,
-            "id": 12,
-            "name": "team 4",
-            "counts": {
-                "members": 1
-            },
-            "users": [
-                {
-                    "email": "andreas.kohler2@swisscom.com",
-                    "status": "member",
-                    "date": 1616671405389833200,
-                    "modifier": "andreas.kohler2@swisscom.com"
-                }
-            ]
-        },
-        {
-            "orgId": 8,
-            "id": 13,
-            "name": "team 5",
-            "counts": {
-                "members": 1
-            },
-            "users": [
-                {
-                    "email": "andreas.kohler2@swisscom.com",
-                    "status": "member",
-                    "date": 1616749315397801200,
-                    "modifier": "andreas.kohler2@swisscom.com"
-                }
+
             ],
             "sponsorByDefault": true,
             "sponsorHidden": true
@@ -656,12 +533,7 @@
                 "members": 1
             },
             "users": [
-                {
-                    "email": "andreas.kohler2@swisscom.com",
-                    "status": "member",
-                    "date": 1616749315397801200,
-                    "modifier": "andreas.kohler2@swisscom.com"
-                }
+
             ],
             "sponsorByDefault": true,
             "sponsorHidden": true
@@ -674,12 +546,7 @@
                 "members": 1
             },
             "users": [
-                {
-                    "email": "andreas.kohler2@swisscom.com",
-                    "status": "member",
-                    "date": 1616749315397801200,
-                    "modifier": "andreas.kohler2@swisscom.com"
-                }
+
             ],
             "sponsorByDefault": true,
             "sponsorHidden": true
@@ -692,12 +559,7 @@
                 "members": 1
             },
             "users": [
-                {
-                    "email": "andreas.kohler2@swisscom.com",
-                    "status": "member",
-                    "date": 1616749315397801200,
-                    "modifier": "andreas.kohler2@swisscom.com"
-                }
+
             ],
             "sponsorByDefault": true,
             "sponsorHidden": true

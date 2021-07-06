@@ -9,9 +9,12 @@ export default {
             treeOrgData: [],
             users: [],
             listdata: [],
+            listdataOwn: [{name: 'tessa.foster@supertraders.com', type: 'initiatingUser', key: 'tessa.foster@supertraders.com'}, {name: 'Silver Team', type: 'team', key: 'Silver Team', children: ['tessa.foster@supertraders.com', 'joost.eringfeld@supertraders.com', 'christoph. kaelin@supertraders.com']}],
             recipientSearchQuery: '',
             subject: '',
             searchResult: [],
+            searchResultOwn: [{name: 'christoph.kaelin@supertraders.com', type: 'user'}, {name: 'emiliya.gede@supertraders.com', type: 'user'}, {name: 'joost.eringfeld@supertraders.com', type: 'user'}, {name: 'mike.johnson@supertraders.com', type: 'user'}, {name: 'mark.robinson@supertraders.com', type: 'user'}, {name: 'robert.wilde@supertraders.com', type: 'user'}, 
+            {name: 'Silver Team', type: 'team'}, {name: 'Gold Team', type: 'team'}, {name: 'Diamond Team', type: 'team'}],
             searchEmail: '',
             searchResultUsers: [],
             userOrgList: [],
@@ -23,12 +26,20 @@ export default {
             invalidUser: false,
             unknownUser: false,
             history: [],
+            domainHistory: [],
             emptyQuery: true,
             sponsoringForce: false,
             sponsoring: false,
             orgExchangeMode: false,
             senderCount: 1,
             orgRestriction: false,
+            senderParticipants: undefined,
+            senderParticipantsCC: undefined,
+            senderList: [{name: 'christoph.kaelin@supertraders.com', type: 'user'}, {name: 'emiliya.gede@supertraders.com', type: 'user'}, {name: 'joost.eringfeld@supertraders.com', type: 'user'}, {name: 'mike.johnson@supertraders.com', type: 'user'}, {name: 'mark.robinson@supertraders.com', type: 'user'}, {name: 'robert.wilde@supertraders.com', type: 'user'}, 
+                         {name: 'Silver Team', type: 'team'}, {name: 'Gold Team', type: 'team'}, {name: 'Diamond Team', type: 'team'}],
+            senderListSelection: ['christoph.kaelin@supertraders.com', 'emiliya.gede@supertraders.com', 'joost.eringfeld.supertraders.com', 'mike.johnson@supertraders.com', 'mark.robinson@supertraders.com', 'robert.wild@supertraders.com'],
+            orgRecipient: undefined,
+            ccResult: [{email: 'christoph.kaelin@supertraders.com'}, {email: 'emiliya.gede@supertraders.com'}, {email: 'joost.eringfeld.supertraders.com'}, {email: 'mike.johnson@supertraders.com'}, {email: 'mark.robinson@supertraders.com'}]
         };
     },
 
@@ -56,6 +67,7 @@ export default {
                         .filter(team => team.orgId === org.id && team.id !== undefined)
                         .map(team =>({title: team.name, value: team.name, key: `t_${team.id}`}))
                 });
+                this.inputSender = 'Super Traders Inc.'
                 } else {
                     return
                 }
@@ -120,6 +132,13 @@ export default {
                 this.emptyQuery = true;
             }
         },
+        handleSenderSearch(query){
+            if(query) {
+                    this.searchResultOwn = this.senderList.filter(entry => entry.name.toLowerCase().substring(0, query.length) === query.toLowerCase().substring(0, query.length))
+            } else {
+                this.searchResultOwn = this.senderList;
+            }
+        },
         checkRecipients(){
             
             let checkingOrg = this.listdata[0];
@@ -128,6 +147,7 @@ export default {
                 if(entry.org === 'none'){
                     this.orgRestriction = false;
                 } else {
+                    this.orgRecipient= entry.org.name;
                     if(entry.org.name !== checkingOrg.org.name){
                         this.orgRestriction = true;
                     }
@@ -148,6 +168,18 @@ export default {
                     this.checkRecipients(recipient.org.name);
                 } 
                 this.exchangeRecipient = '';
+
+                if(this.domainHistory.filter(entry => entry.name === this.searchEmail.substring(this.searchEmail.lastIndexOf("@") +1)).length === 0) {
+                    this.domainHistory.push({name: this.searchEmail.substring(this.searchEmail.lastIndexOf("@") +1), contacts: [this.searchEmail]})
+                } else {
+                        if(!this.domainHistory.filter(entry => entry.name === this.searchEmail.substring(this.searchEmail.lastIndexOf("@") +1)).map(entry => entry.contacts.includes(this.searchEmail))){
+                            this.domainHistory.filter(entry => entry.name === this.searchEmail.substring(this.searchEmail.lastIndexOf("@") +1)).map(entry => entry.contacts.push(this.searchEmail));
+                        } else {
+                            console.log('Duplicate entry');
+                        }
+                            
+                    }
+                
                 if(this.history.filter(entry => entry.email === this.searchEmail).length === 0){
                     this.searchEmail.length > 0 ? this.history.push({email: this.searchEmail}) : null;
                 } 
@@ -162,22 +194,34 @@ export default {
             }
         },
         handleSenderSelect(sender){
+            alert(1);
             if(sender === 'Super Traders Inc.'){
                 this.orgExchangeMode = true;
+                this.senderParticipants = undefined;
+                this.senderParticipantsCC = undefined;
                 this.senderCount = 1;
             } else {
                 this.orgExchangeMode = false;
                 switch(sender){
                     case 'Silver Team': {
                         this.senderCount = 4;
+                        this.senderParticipantsCC = undefined;
+                        this.senderParticipants = ['joost.eringfeld.supertraders.com', 'emiliya.gede@supertraders.com', 'mark.robinson@supertraders.com']
+                        this.senderListSelection = this.senderList.filter(n => !this.senderParticipants.includes(n))
                         break;
                     }
                     case 'Gold Team': {
-                        this.senderCount = 7;
+                        this.senderCount = 6;
+                        this.senderParticipantsCC = undefined;
+                        this.senderParticipants = ['joost.eringfeld.supertraders.com', 'emiliya.gede@supertraders.com', 'mark.robinson@supertraders.com', 'christoph.kaelin@supertraders.com', 'mike.johnson@supertraders.com']
+                        this.senderListSelection = this.senderList.filter(n => !this.senderParticipants.includes(n))
                         break;
                     }
                     case 'Diamond Team': {
                         this.senderCount = 3;
+                        this.senderParticipantsCC = undefined;
+                        this.senderParticipants = ['joost.eringfeld.supertraders.com', 'mark.robinson@supertraders.com']
+                        this.senderListSelection = this.senderList.filter(n => !this.senderParticipants.includes(n))
                         break;
                     }
                 }
@@ -196,12 +240,13 @@ export default {
                 this.searchEmail = query;
                 this.searchResult = this.users.filter(entry => entry.email.toLowerCase().substring(0, query.length) === query.toLowerCase().substring(0, query.length))
             } else {
+                console.log(this.re.test(String(query).toLowerCase()));
                 if(this.re.test(String(query).toLowerCase())){
                     this.invalidUser = false;
                     this.unknownUser = true;
                     this.searchResult = [{email: query, value: query, key: query, unregistered: true}];
                 } else {
-                    this.searchResult = [];
+                    this.searchResult = this.domainHistory.filter(entry => entry.name.toLowerCase().substring(0, query.length) === query.toLowerCase().substring(0, query.length))
                     this.invalidUser = true;
                     this.unknownUser = false;
                 }
