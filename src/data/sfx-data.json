@@ -227,7 +227,7 @@
         },
         {
             "id": 8,
-            "name": "Swisscom",
+            "name": "Glencore",
             "address": "riverstreet 1",
             "zipCode": "1000",
             "city": "zurich",
@@ -245,13 +245,19 @@
             },
             "users": [
                 {
-                    "email": "john.smith@swisscom.com",
+                    "email": "corrine.meland@glencore.com",
                     "status": "admin",
                     "date": 1616065466985198000,
                     "modifier": ""
                 },
                 {
-                    "email": "andreas.kohler@swisscom.com",
+                    "email": "john.smith@glencore.com",
+                    "status": "admin",
+                    "date": 1616065466985198000,
+                    "modifier": ""
+                },
+                {
+                    "email": "andreas.kohler@glencore.com",
                     "status": "admin",
                     "date": 1616065466985198000,
                     "modifier": ""
@@ -497,16 +503,16 @@
         {
             "orgId": 8,
             "id": 9,
-            "name": "Aqua Team",
+            "name": "GLAG - Alu",
             "counts": {
                 "members": 1
             },
             "users": [
                 {
-                    "email": "john.smith@swisscom.com",
+                    "email": "corrine.meland@glencore.com",
                     "status": "member",
                     "date": 1616065744793080000,
-                    "modifier": "john.smith@swisscom.com"
+                    "modifier": "corrine.meland@glencore.com"
                 }
             ],
             "sponsorByDefault": true,
@@ -515,7 +521,7 @@
         {
             "orgId": 8,
             "id": 10,
-            "name": "Riverbank Team",
+            "name": "GLAG - Ferro",
             "counts": {
                 "members": 0
             },

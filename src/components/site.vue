@@ -11,21 +11,22 @@
             <div class="sender">
             <span class="titles">Parties</span><span class="red">*</span><br>
             <a-tag color="blue" class="senders-tag">
-                <a-dropdown class="center">
+                <div class="center">
 
                     <a class="ant-dropdown-link" @click="e => e.preventDefault()">
-                    Super Traders Inc.
+                    Swisscom AG
                     </a>
-
+                </div>
+<!--                 <a-dropdown class="center">
                     <a-menu  class="dropdown" slot="overlay">
                     <a-menu-item >
-                        
+                        <a style="font-size: 11px">tessa.foster@supertraders.com</a>
                     </a-menu-item>
                     <a-menu-item v-for="entry in senderParticipants" :key="entry">
                         <a style="font-size: 11px" href="javascript:;"> {{entry}}</a>
                     </a-menu-item>
                     </a-menu>
-                </a-dropdown>
+                </a-dropdown> -->
             </a-tag>
             <!-- <a-tree-select
                 id="sender-select"
@@ -125,7 +126,7 @@
                         <template>
 
 
-                                <a-select-option v-for="entry in searchResultOwn" :value="entry.name" :key="entry.name">
+                                <a-select-option v-for="entry in searchResultOwn" :key="entry.name">
                                     <a-icon v-if="entry.type === 'user'" type="user" />
                                     <a-icon v-if="entry.type === 'team'" type="apartment" />
                                     {{ entry.name }}
@@ -148,6 +149,7 @@
                         <a-list-item class="list" v-for="entry in listdataOwn" :key="entry">
                             <a-icon v-if="entry.type === 'initiatingUser'" type="user" />
                             <a-icon v-if="entry.type === 'unregisteredUser'" type="user" />
+                            <a-icon v-if="entry.type === 'user'" type="user" />
                             <a-icon v-if="entry.type === 'organisation'" type="bank" />
                             <a-icon v-if="entry.type === 'team'" type="apartment" />
                             {{entry.name}}
@@ -156,7 +158,7 @@
 
                             <a-tag v-if="entry.type === 'initiatingUser'">Initiator</a-tag>
                             <a-tag color="purple" v-if="entry.type === 'unregisteredUser'">Guest</a-tag> 
-                            <a v-if="entry.type !== 'initiatingUser'" class="deletebutton" @click="handleClose(entry)"><a-icon type="delete" /></a>
+                            <a v-if="entry.type !== 'initiatingUser'" class="deletebutton" @click="handleCloseOwn(entry)"><a-icon type="delete" /></a>
                         </a-list-item>
                     </a-list>
                 </div>
@@ -167,16 +169,19 @@
                 <h3>Sponsoring</h3>
                 <p class="SDescription">If you sponsor this exchange, your organisation will be billed for both sides of the exchange.</p>
                 <a-checkbox :checked="sponsoring" :disabled="sponsoringForce" @change="handleSponsoring" style="font-size: 12px">This is a sponsored exchange</a-checkbox>
-            </div>
-
-            <a-button :disabled="orgRestriction" class="clearbutton next" type="primary" @click="sendExchange">
+                <br><br><br>
+                            <a-button :disabled="orgRestriction" class="next-button" type="primary" @click="sendExchange">
                 Next
             </a-button>
+            </div>
+
             </div>
             <div class="recipient">
             <a-icon class="swap" type="swap" />
             <a-tag :color="orgRecipient ? 'blue' : 'green'" class="recipients-tag">
-                <a-dropdown class="center">
+
+                
+                <div class="center">
 
                     <a v-if="orgRecipient" class="ant-dropdown-link" @click="e => e.preventDefault()">
                     {{orgRecipient}}
@@ -185,16 +190,27 @@
                     <a v-if="!orgRecipient" class="ant-dropdown-link" @click="e => e.preventDefault()">
                     No recipient
                     </a>
+                </div>
 
+<!--                 <a-dropdown class="center">
                     <a-menu  class="dropdown" slot="overlay">
-                    <a-menu-item >
-                        
-                    </a-menu-item>
-                    <a-menu-item v-for="entry in senderParticipants" :key="entry">
-                        <a style="font-size: 11px" href="javascript:;"> {{entry}}</a>
+                    <a-menu-item v-for="entry in listdata" :key="entry">
+                        <a v-if="entry.type === 'user'" style="font-size: 11px" href="javascript:;"> 
+                            {{entry.name}}
+                        </a>
+                        <a v-if="entry.name === 'Aqua Team'" style="font-size: 11px" href="javascript:;"> 
+                            <p>andreas.kohler@swisscom.com</p>
+                            <p>john.smith@swisscom.com</p>
+                        </a>
+                        <a v-if="entry.name === 'Riverbank Team'" style="font-size: 11px" href="javascript:;"> 
+                            <p>andreas.kohler@swisscom.com</p>
+                            <p>john.smith@swisscom.com</p>
+                            <p>kate.lorenza@swisscom.com</p>
+                            <p>elizabeth.johnson@swisscom.com</p>
+                        </a>
                     </a-menu-item>
                     </a-menu>
-                </a-dropdown>
+                </a-dropdown> -->
             </a-tag>
             <a-auto-complete
                 id="recipientInput"
@@ -323,9 +339,11 @@
 
             <br><br>
             <br>
+
             </div>
         </div>
     </div>
+    
 </template>
 
 <script src="./site.js" />

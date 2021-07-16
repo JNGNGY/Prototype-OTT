@@ -9,11 +9,11 @@ export default {
             treeOrgData: [],
             users: [],
             listdata: [],
-            listdataOwn: [{name: 'tessa.foster@supertraders.com', type: 'initiatingUser', key: 'tessa.foster@supertraders.com'}, {name: 'Silver Team', type: 'team', key: 'Silver Team', children: ['tessa.foster@supertraders.com', 'joost.eringfeld@supertraders.com', 'christoph. kaelin@supertraders.com']}],
+            listdataOwn: [{name: 'tessa.foster@swisscom.com', type: 'initiatingUser', key: 'tessa.foster@swisscom.com'}],
             recipientSearchQuery: '',
             subject: '',
             searchResult: [],
-            searchResultOwn: [{name: 'christoph.kaelin@supertraders.com', type: 'user'}, {name: 'emiliya.gede@supertraders.com', type: 'user'}, {name: 'joost.eringfeld@supertraders.com', type: 'user'}, {name: 'mike.johnson@supertraders.com', type: 'user'}, {name: 'mark.robinson@supertraders.com', type: 'user'}, {name: 'robert.wilde@supertraders.com', type: 'user'}, 
+            searchResultOwn: [{name: 'christoph.kaelin@swisscom.com', type: 'user'}, {name: 'emiliya.gede@swisscom.com', type: 'user'}, {name: 'joost.eringfeld@swisscom.com', type: 'user'}, {name: 'mike.johnson@swisscom.com', type: 'user'}, {name: 'mark.robinson@swisscom.com', type: 'user'}, {name: 'robert.wilde@swisscom.com', type: 'user'}, 
             {name: 'Silver Team', type: 'team'}, {name: 'Gold Team', type: 'team'}, {name: 'Diamond Team', type: 'team'}],
             searchEmail: '',
             searchResultUsers: [],
@@ -33,13 +33,13 @@ export default {
             orgExchangeMode: false,
             senderCount: 1,
             orgRestriction: false,
-            senderParticipants: undefined,
+            senderParticipants: [],
             senderParticipantsCC: undefined,
-            senderList: [{name: 'christoph.kaelin@supertraders.com', type: 'user'}, {name: 'emiliya.gede@supertraders.com', type: 'user'}, {name: 'joost.eringfeld@supertraders.com', type: 'user'}, {name: 'mike.johnson@supertraders.com', type: 'user'}, {name: 'mark.robinson@supertraders.com', type: 'user'}, {name: 'robert.wilde@supertraders.com', type: 'user'}, 
+            senderList: [{name: 'christoph.kaelin@swisscom.com', type: 'user'}, {name: 'emiliya.gede@swisscom.com', type: 'user'}, {name: 'joost.eringfeld@swisscom.com', type: 'user'}, {name: 'mike.johnson@swisscom.com', type: 'user'}, {name: 'mark.robinson@swisscom.com', type: 'user'}, {name: 'robert.wilde@swisscom.com', type: 'user'}, 
                          {name: 'Silver Team', type: 'team'}, {name: 'Gold Team', type: 'team'}, {name: 'Diamond Team', type: 'team'}],
-            senderListSelection: ['christoph.kaelin@supertraders.com', 'emiliya.gede@supertraders.com', 'joost.eringfeld.supertraders.com', 'mike.johnson@supertraders.com', 'mark.robinson@supertraders.com', 'robert.wild@supertraders.com'],
+            senderListSelection: ['christoph.kaelin@swisscom.com', 'emiliya.gede@swisscom.com', 'joost.eringfeld.swisscom.com', 'mike.johnson@swisscom.com', 'mark.robinson@swisscom.com', 'robert.wild@swisscom.com'],
             orgRecipient: undefined,
-            ccResult: [{email: 'christoph.kaelin@supertraders.com'}, {email: 'emiliya.gede@supertraders.com'}, {email: 'joost.eringfeld.supertraders.com'}, {email: 'mike.johnson@supertraders.com'}, {email: 'mark.robinson@supertraders.com'}]
+            ccResult: [{email: 'christoph.kaelin@swisscom.com'}, {email: 'emiliya.gede@swisscom.com'}, {email: 'joost.eringfeld.swisscom.com'}, {email: 'mike.johnson@swisscom.com'}, {email: 'mark.robinson@swisscom.com'}]
         };
     },
 
@@ -194,38 +194,26 @@ export default {
             }
         },
         handleSenderSelect(sender){
-            alert(1);
-            if(sender === 'Super Traders Inc.'){
-                this.orgExchangeMode = true;
-                this.senderParticipants = undefined;
-                this.senderParticipantsCC = undefined;
-                this.senderCount = 1;
-            } else {
-                this.orgExchangeMode = false;
+            this.exchangeSender = null;
+            this.searchResultOwn = this.senderList;
+            this.listdataOwn.push({name: sender, type: (sender.includes('Team') ? 'team' : 'user')})
                 switch(sender){
                     case 'Silver Team': {
-                        this.senderCount = 4;
-                        this.senderParticipantsCC = undefined;
-                        this.senderParticipants = ['joost.eringfeld.supertraders.com', 'emiliya.gede@supertraders.com', 'mark.robinson@supertraders.com']
-                        this.senderListSelection = this.senderList.filter(n => !this.senderParticipants.includes(n))
+                        this.senderParticipants.push('joost.eringfeld.swisscom.com', 'emiliya.gede@swisscom.com', 'mark.robinson@swisscom.com');
                         break;
                     }
                     case 'Gold Team': {
-                        this.senderCount = 6;
-                        this.senderParticipantsCC = undefined;
-                        this.senderParticipants = ['joost.eringfeld.supertraders.com', 'emiliya.gede@supertraders.com', 'mark.robinson@supertraders.com', 'christoph.kaelin@supertraders.com', 'mike.johnson@supertraders.com']
-                        this.senderListSelection = this.senderList.filter(n => !this.senderParticipants.includes(n))
+                        this.senderParticipants.push('joost.eringfeld.swisscom.com', 'emiliya.gede@swisscom.com', 'mark.robinson@swisscom.com', 'christoph.kaelin@swisscom.com', 'mike.johnson@swisscom.com');
                         break;
                     }
                     case 'Diamond Team': {
-                        this.senderCount = 3;
-                        this.senderParticipantsCC = undefined;
-                        this.senderParticipants = ['joost.eringfeld.supertraders.com', 'mark.robinson@supertraders.com']
-                        this.senderListSelection = this.senderList.filter(n => !this.senderParticipants.includes(n))
+                        this.senderParticipants.push('joost.eringfeld.swisscom.com', 'mark.robinson@swisscom.com');
                         break;
                     }
+                    default: {
+                        this.senderParticipants.push(sender);
+                    }
                 }
-            }
         },
         handleCCSelect(value){
             this.senderCount = value.length + 1;
@@ -266,6 +254,30 @@ export default {
             } else {
                 this.sponsoringForce = false;
             }
+            if(this.listdata.length === 0){
+                this.orgRecipient = null;
+            }
+        },
+        handleCloseOwn(removedTag) {
+            const tags = this.listdataOwn.filter(tag => tag !== removedTag);
+            this.listdataOwn = tags;
+            switch(removedTag) {
+                case 'Silver Team': {
+                    this.senderParticipants.splice('joost.eringfeld.swisscom.com', 'emiliya.gede@swisscom.com', 'mark.robinson@swisscom.com');
+                    break;
+                }
+                case 'Gold Team': {
+                    this.senderParticipants.splice('joost.eringfeld.swisscom.com', 'emiliya.gede@swisscom.com', 'mark.robinson@swisscom.com', 'christoph.kaelin@swisscom.com', 'mike.johnson@swisscom.com');
+                    break;
+                }
+                case 'Diamond Team': {
+                    this.senderParticipants.splice('joost.eringfeld.swisscom.com', 'mark.robinson@swisscom.com');
+                    break;
+                }
+                default: {
+                    this.senderParticipants.splice(removedTag);
+                }
+            }
         },  
         getTeamCount(name){
             console.log(this.users.filter(entry => entry.teams.includes(name).length));
@@ -285,6 +297,17 @@ export default {
               description: descriptionElement,
               duration: 0,
             });
+            this.inputSender = undefined,
+            this.inputRecipient = undefined,
+            this.listdata = [],
+            this.listdataOwn = [{name: 'tessa.foster@swisscom.com', type: 'initiatingUser', key: 'tessa.foster@swisscom.com'}],
+            this.subject = '',
+            this.exchangeRecipient = '',
+            this.sponsoringForce = false,
+            this.sponsoring = false,
+            this.orgRestriction = false,
+            this.senderParticipants = [],
+            this.orgRecipient = null
           },
     },
 }
